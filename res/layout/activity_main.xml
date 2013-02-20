@@ -1,0 +1,79 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/textView_velocidade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView_velocidade2"
+        android:text="Velocidade"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <com.example.controleremotolejos.VerticalSeekBar
+        android:id="@+id/seekBar_velocidade"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView_velocidade"
+        android:layout_marginLeft="30dp" />
+
+    <TextView
+        android:id="@+id/textView_velocidade2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="46dp"
+        android:text="Velocidade: 0m/s"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/textView_motor2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/seekBar_velocidade"
+        android:layout_alignLeft="@+id/textView_velocidade2"
+        android:text="Rotação motor: 0º"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <SeekBar
+        android:id="@+id/seekBar_motor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView_motor"
+        android:layout_toRightOf="@+id/textView_velocidade" />
+
+    <Button
+        android:id="@+id/button_conectar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView_motor2"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:onClick="ButtonOnClick"
+        android:text="Conectar" />
+
+    <EditText
+        android:id="@+id/texto_nxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button_conectar"
+        android:layout_alignLeft="@+id/button_conectar"
+        android:layout_alignParentRight="true"
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/textView_motor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_conectar"
+        android:layout_toLeftOf="@+id/button_conectar"
+        android:text="Motor"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+</RelativeLayout>

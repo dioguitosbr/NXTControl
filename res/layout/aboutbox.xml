@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:padding="15dp" >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/app_name"
+        android:textSize="10pt" />
+
+    <ImageView
+        android:layout_width="290dp"
+        android:layout_height="250dp"
+        android:gravity="center"
+        android:src="@drawable/spike" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.07"
+        android:gravity="center"
+        android:text="Software desenvolvido por Diogo Casteluber Laass"
+        android:textSize="8pt" />
+
+</LinearLayout>
