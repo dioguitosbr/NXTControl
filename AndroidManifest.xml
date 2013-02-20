@@ -8,6 +8,7 @@
 
     <uses-sdk
         android:minSdkVersion="11"
+        <!-- android:minSdkVersion="8"/2.3.x gingerbread -->
         android:targetSdkVersion="16" />
 
     <application
@@ -15,7 +16,7 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@android:style/Theme.Holo" 
-        <!--android:theme="@android:style/Black" to android api 14- -->
+        <!-- android:theme="@android:style/Black" to android api 14- -->
 		>
         <activity
             android:name="com.example.controleremotolejos.MainActivity"
