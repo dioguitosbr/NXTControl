@@ -14,3 +14,8 @@ Uma aplicação para android para controlar um carrinho de NXT com bluetooth.
 [#1] 2013/02/19 - Commit inicial.<br />
 [#1] BUGS: a aplicação mostra uma mensagem se o bluetooth estiver desligado/não conectado, porem não consegue conectar a nenhum dispositivo e é forçada a fechar.<br />
 [#1] Atualizado para funcionar somente com a API 14+(Android 4.0)<br />
+
+
+<b>Developers/Desenvolvedores:</b><br />
+Charles Pereira Telles a.k.a. Tio Coveiro<br />
+Diogo Casteluber Laass a.k.a. iowaz<br />
