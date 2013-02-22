@@ -1,4 +1,4 @@
-package com.example.controleremotolejos;
+ package com.example.controleremotolejos;
 
 import android.widget.*;
 import android.content.*;
@@ -61,12 +61,12 @@ public class VerticalSeekBar extends SeekBar {
 			super.onTouchEvent(event);
 			int progress = getMax() - (int) (getMax() * event.getY() / getHeight());
 			
-			// Ensure progress stays within boundaries
+			//So para garantir que não passe das bordas da seekbar
 			if(progress < 0) {progress = 0;}
 			if(progress > getMax()) {progress = getMax();}
-			setProgress(progress);	// Draw progress
+			setProgress(progress);	//Exibir o progresso
 			if(progress != lastProgress) {
-				// Only enact listener if the progress has actually changed
+				//So chama o listener se o valor for modificado
 				lastProgress = progress;
 				onChangeListener.onProgressChanged(this, progress, true);
 			}
@@ -93,7 +93,7 @@ public class VerticalSeekBar extends SeekBar {
 		setProgress(progress);
 		onSizeChanged(getWidth(), getHeight() , 0, 0);
 		if(progress != lastProgress) {
-			// Only enact listener if the progress has actually changed
+			// So chama o listener se o valor for modificado
 			lastProgress = progress;
 			onChangeListener.onProgressChanged(this, progress, true);
 		}

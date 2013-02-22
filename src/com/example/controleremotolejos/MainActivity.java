@@ -17,7 +17,11 @@ import java.util.*;
 @SuppressWarnings("unused")
 public class MainActivity extends Activity implements OnSeekBarChangeListener {
 
+<<<<<<< HEAD
     public static final int MENU_CONNECT = Menu.FIRST;
+=======
+    public static final int MENU_CONECTAR = Menu.FIRST;
+>>>>>>> 4ec7c1a9aa1be18de08e747e3505f61dcf244be8
     public static final int MENU_ABOUT = Menu.FIRST + 1;
     public static final int MENU_QUIT = Menu.FIRST + 2;
     
@@ -51,7 +55,11 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 		if(seekBar == (SeekBar)findViewById(R.id.seekBar_motor)) {
 			TextView tv = (TextView)findViewById(R.id.textView_motor2);
 			int velo = progress-45;
+<<<<<<< HEAD
 			tv.setText("Rotação motor: " + velo + "%");
+=======
+			tv.setText("Rotaï¿½ï¿½o motor: " + velo + "ï¿½");
+>>>>>>> 4ec7c1a9aa1be18de08e747e3505f61dcf244be8
 		}
 	}
 	
@@ -64,7 +72,11 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 	}
 
     public boolean onCreateOptionsMenu(Menu menu) {
+<<<<<<< HEAD
     	menu.add(0, MENU_CONNECT, 0, "Conectar").setIcon(R.drawable.menu_info_connect);
+=======
+    	menu.add(0, MENU_CONNECT, 0, "Conectar").setIcon(R.drawable.menu_connect_icon);
+>>>>>>> 4ec7c1a9aa1be18de08e747e3505f61dcf244be8
         menu.add(0, MENU_ABOUT, 0, "Sobre").setIcon(R.drawable.menu_info_icon);
         menu.add(0, MENU_QUIT, 0, "Fechar").setIcon(R.drawable.menu_quit_icon);
         return true;
@@ -95,8 +107,15 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
     
     	private void showConnectDialog()
     	{
+<<<<<<< HEAD
     	     Intent myIntent = new Intent(this, AndroidBluetooth.class);
     	     startActivity(myIntent);
+=======
+    		final Dialog dialog = new Dialog(this);
+    		dialog.getWindow().requestFeature(Window.setTitle("Conectar"));
+    		dialog.setContentView(R.layout.connectwindow);
+    		dialog.show();
+>>>>>>> 4ec7c1a9aa1be18de08e747e3505f61dcf244be8
     	}
 	
 	public void ButtonOnClick(View v) {
@@ -135,7 +154,7 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
             Toast toast = Toast.makeText(this, "Conectado!", Toast.LENGTH_SHORT);
             toast.show();
         } catch (IOException e) {
-            Toast toast = Toast.makeText(this, "Problema em criar conexão com " + myNXT.getText().toString(), Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, "Problema em criar conexï¿½o com " + myNXT.getText().toString(), Toast.LENGTH_SHORT);
             toast.show();
         }
     }
