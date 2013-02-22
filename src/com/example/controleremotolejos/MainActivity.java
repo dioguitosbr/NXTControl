@@ -5,6 +5,7 @@ import android.os.*;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.*;
 import android.bluetooth.*;
+import android.content.Intent;
 import android.view.*;
 import android.view.View.OnClickListener;
 
@@ -13,10 +14,12 @@ import java.util.*;
 
 
 
+@SuppressWarnings("unused")
 public class MainActivity extends Activity implements OnSeekBarChangeListener {
 
-    public static final int MENU_ABOUT = Menu.FIRST;
-    public static final int MENU_QUIT = Menu.FIRST + 1;
+    public static final int MENU_CONNECT = Menu.FIRST;
+    public static final int MENU_ABOUT = Menu.FIRST + 1;
+    public static final int MENU_QUIT = Menu.FIRST + 2;
     
     private TextView myNXT;
     private BluetoothSocket nxtBTsocket = null;
@@ -48,7 +51,7 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 		if(seekBar == (SeekBar)findViewById(R.id.seekBar_motor)) {
 			TextView tv = (TextView)findViewById(R.id.textView_motor2);
 			int velo = progress-45;
-			tv.setText("Rotação motor: " + velo + "º");
+			tv.setText("Rotação motor: " + velo + "%");
 		}
 	}
 	
@@ -61,6 +64,7 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 	}
 
     public boolean onCreateOptionsMenu(Menu menu) {
+    	menu.add(0, MENU_CONNECT, 0, "Conectar").setIcon(R.drawable.menu_info_connect);
         menu.add(0, MENU_ABOUT, 0, "Sobre").setIcon(R.drawable.menu_info_icon);
         menu.add(0, MENU_QUIT, 0, "Fechar").setIcon(R.drawable.menu_quit_icon);
         return true;
@@ -68,6 +72,9 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case MENU_CONNECT:
+            	showConnectDialog();
+            	return true;
             case MENU_ABOUT:
                 showAboutDialog();
                 return true;         
@@ -85,6 +92,12 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
         dialog.setContentView(R.layout.aboutbox);
         dialog.show();
     }
+    
+    	private void showConnectDialog()
+    	{
+    	     Intent myIntent = new Intent(this, AndroidBluetooth.class);
+    	     startActivity(myIntent);
+    	}
 	
 	public void ButtonOnClick(View v) {
 		switch (v.getId()) {

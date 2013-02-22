@@ -12,15 +12,18 @@ public final class R {
     }
     public static final class drawable {
         public static final int ic_launcher=0x7f020000;
-        public static final int menu_info_icon=0x7f020001;
-        public static final int menu_quit_icon=0x7f020002;
-        public static final int seek_thumb_normal=0x7f020003;
-        public static final int seekbar_background=0x7f020004;
-        public static final int spike=0x7f020005;
+        public static final int menu_info_connect=0x7f020001;
+        public static final int menu_info_icon=0x7f020002;
+        public static final int menu_quit_icon=0x7f020003;
+        public static final int seek_thumb_normal=0x7f020004;
+        public static final int seekbar_background=0x7f020005;
+        public static final int spike=0x7f020006;
     }
     public static final class id {
+        public static final int bluetoothstate=0x7f070008;
         public static final int button_conectar=0x7f070006;
-        public static final int menu_settings=0x7f070008;
+        public static final int listpaireddevices=0x7f070009;
+        public static final int menu_settings=0x7f07000a;
         public static final int seekBar_motor=0x7f070004;
         public static final int seekBar_velocidade=0x7f070002;
         public static final int textView_motor=0x7f070005;
@@ -32,6 +35,7 @@ public final class R {
     public static final class layout {
         public static final int aboutbox=0x7f030000;
         public static final int activity_main=0x7f030001;
+        public static final int connectbox=0x7f030002;
     }
     public static final class menu {
         public static final int activity_main=0x7f060000;
