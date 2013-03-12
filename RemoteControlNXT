@@ -1,0 +1,83 @@
+//Importando bibliotecas leJOS
+import lejos.nxt.*;
+import lejos.util.*;
+import lejos.nxt.comm.*;
+
+//Importando bibliotecas do JAVA necessarias
+import java.io.*;
+
+
+public class RemoteControlNXT {
+  public static DataInputStream inDat;
+	public static DataOutputStream outDat;
+	
+	public static final int FORWARD = 1;  
+	public static final int BACKWARD = 2;
+	public static final int ESQUERDA = 3;  
+	public static final int DIREITA = 4; 
+	public static final int RESETAR_A = 5;  
+	public static final int RESETAR_B = 6; 
+	
+	public static final int KEY_ESQUERDA = 37;
+	public static final int KEY_FRENTE = 38;
+	public static final int KEY_DIREITA = 39;
+	public static final int KEY_RE = 40;
+	public static final int KEY_RESET_A = 32;
+	public static final int KEY_RESET_B = 18;
+	
+    public static void main(String[] args) throws Exception {
+        LCD.drawString("teste", 0, 0);
+
+        BTConnection btc = null;
+        
+        LCD.drawString("OK", 6, 1);
+        LCD.refresh();
+		btc = Bluetooth.waitForConnection();  
+		inDat = btc.openDataInputStream();
+		outDat = btc.openDataOutputStream(); 		
+        Sound.twoBeeps(); 	
+		LCD.drawString("LOOP", 0, 2);
+        
+        int rotacao_b = 0; 
+		Motor.B.setSpeed(1000);
+		Motor.A.setSpeed(1000);
+		int receber = receiveInt();
+		LCD.drawString("R: " + receber, 0, 4);
+        while(!Button.ESCAPE.isDown()) {
+			LCD.drawString("LOOP!", 0, 3);
+			if(receber == 1) Motor.A.forward();
+			if(receber == 2) Motor.A.stop();
+			LCD.drawString("R: " + receber, 0, 4);
+			if(Button.ENTER.isDown()) {
+				break;
+			}
+        }
+        
+        inDat.close();
+        outDat.close();
+        LCD.drawString("Disconectando.", 0, 1);
+        btc.close();   
+    }
+	
+	public static boolean sendInt(int intToBeSent) {
+		try {
+			outDat.writeInt(intToBeSent);
+			outDat.flush();
+			return true;
+		} catch (IOException ioe) {
+			System.out.println("IO Exception writing bytes");
+			return false;
+		}			
+	}
+
+	public static int receiveInt() {
+		int receivedInt = 0;
+		try {
+			receivedInt = inDat.readInt();
+		}
+		catch (IOException ioe) {
+			System.out.println(ioe);
+		}   
+		return receivedInt;       
+	}
+}
